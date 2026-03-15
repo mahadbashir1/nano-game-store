@@ -1,0 +1,29 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 255, 0.2);
+}
+
+input:focus, textarea:focus, select:focus {
+    transition: border-color 0.3s ease;
+    border-color: #3b82f6 !important;
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+aside {
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}

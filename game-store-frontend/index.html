@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Sidebar Navigation -->
+    <div class="flex min-h-screen">
+        <aside id="sidebar" class="bg-gray-800 w-64 p-6 flex-shrink-0 transition-all duration-300">
+            <h1 class="text-2xl font-bold text-blue-400 mb-8">Nano Game Store</h1>
+            <nav id="nav-links" class="space-y-4">
+                <a href="#home" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-700 hover:text-blue-400">Home</a>
+                <a href="#cart" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-700 hover:text-blue-400">Cart</a>
+                <a href="#orders" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-700 hover:text-blue-400">Orders</a>
+                <a href="#login" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-700 hover:text-blue-400">Login</a>
+                <a href="#register" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-700 hover:text-blue-400">Register</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="content" class="flex-1 p-8 overflow-auto">
+            <!-- Home Page -->
+            <div id="home" class="page">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Featured Games</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="games-list"></div>
+            </div>
+
+            <!-- Product Details -->
+            <div id="product" class="page hidden">
+                <div id="product-details" class="bg-gray-800 p-8 rounded-xl shadow-lg max-w-3xl mx-auto"></div>
+            </div>
+
+            <!-- Cart -->
+            <div id="cart" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Shopping Cart</h2>
+                <div id="cart-items" class="bg-gray-800 p-8 rounded-xl shadow-lg"></div>
+                <div class="mt-6 flex justify-between items-center">
+                    <p id="cart-total" class="text-xl font-bold text-blue-400"></p>
+                    <button id="checkout-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Proceed to Checkout</button>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div id="order-summary" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Order Summary</h2>
+                <div id="order-details" class="bg-gray-800 p-8 rounded-xl shadow-lg"></div>
+                <button id="confirm-order-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg mt-6 hover:bg-green-600">Confirm Order</button>
+            </div>
+
+            <!-- Order Tracking -->
+            <div id="orders" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Your Orders</h2>
+                <div id="order-list" class="bg-gray-800 p-8 rounded-xl shadow-lg"></div>
+            </div>
+
+            <!-- Login -->
+            <div id="login" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Login</h2>
+                <form id="login-form" class="bg-gray-800 p-8 rounded-xl shadow-lg max-w-md mx-auto">
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Email</label>
+                        <input type="email" id="login-email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Password</label>
+                        <input type="password" id="login-password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-600">Login</button>
+                </form>
+            </div>
+
+            <!-- Register -->
+            <div id="register" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Register</h2>
+                <form id="register-form" class="bg-gray-800 p-8 rounded-xl shadow-lg max-w-md mx-auto">
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Username</label>
+                        <input type="text" id="register-username" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Email</label>
+                        <input type="email" id="register-email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Password</label>
+                        <input type="password" id="register-password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-300 font-semibold">Role</label>
+                        <select id="register-role" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <option value="CUSTOMER">Customer</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-600">Register</button>
+                </form>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div id="admin-dashboard" class="page hidden">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">Admin Dashboard</h2>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Manage Inventory</h3>
+                    <form id="add-game-form" class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-300 font-semibold">Title</label>
+                            <input type="text" id="game-title" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold">Price</label>
+                            <input type="number" id="game-price" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" step="0.01" required>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-gray-300 font-semibold">Description</label>
+                            <textarea id="game-description" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold">Genre</label>
+                            <input type="text" id="game-genre" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold">Platform</label>
+                            <input type="text" id="game-platform" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold">Stock Quantity</label>
+                            <input type="number" id="game-stock" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Add/Update Game</button>
+                        </div>
+                    </form>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Inventory</h3>
+                    <div id="admin-inventory" class="mb-6"></div>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Manage Orders</h3>
+                    <div id="admin-orders"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

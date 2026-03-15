@@ -22,8 +22,8 @@ const initializeDatabase = async () => {
     console.log("Connected to MySQL database");
 
     // Create database
-    await connection.query("CREATE DATABASE IF NOT EXISTS rana_game_store");
-    await connection.query("USE rana_game_store"); // Fixed: Using consistent database name
+    await connection.query("CREATE DATABASE IF NOT EXISTS nano_game_store");
+    await connection.query("USE nano_game_store"); // Fixed: Using consistent database name
 
     // Create tables
     await connection.query(`

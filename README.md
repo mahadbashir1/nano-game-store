@@ -31,7 +31,7 @@ Nano Game Store is a full-stack web application designed for browsing, managing,
 ## Working Mechanism
 
 1. **Client-Server Architecture**: The frontend (HTML/JS) communicates with the backend (Express API) via asynchronous `fetch` requests.
-2. **Database Integration**: The backend uses the `mysql2` package to interact with a MySQL database (`rana_game_store`). It utilizes standard tables alongside SQL triggers (for auto-updating inventory on purchases) and stored procedures (for transactional checkout processing).
+2. **Database Integration**: The backend uses the `mysql2` package to interact with a MySQL database (`nano_game_store`). It utilizes standard tables alongside SQL triggers (for auto-updating inventory on purchases) and stored procedures (for transactional checkout processing).
 3. **Authentication**: Users are tracked via local state on the frontend based on successful login responses from the backend API.
 4. **Dynamic UI**: Navigation and available features dynamically update based on whether a user is logged in as a `CUSTOMER` or an `ADMIN`.
 
@@ -43,7 +43,7 @@ Nano Game Store is a full-stack web application designed for browsing, managing,
 
 ### 1. Database Configuration
 1. Ensure your local MySQL server is running.
-2. The backend is configured to automatically connect to MySQL and initialize the required database (`rana_game_store`) and tables upon startup.
+2. The backend is configured to automatically connect to MySQL and initialize the required database (`nano_game_store`) and tables upon startup.
 3. *Note: If your MySQL server requires a specific username or password, you may need to update the connection credentials in `game-store-backend/src/db/init.js` (or via environment variables if configured).*
 
 ### 2. Backend Setup
